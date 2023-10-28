@@ -29,7 +29,7 @@ mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
-mySprite.setPosition(52, 97)
+mySprite.setPosition(40, 105)
 mySprite.ay = 200
 controller.moveSprite(mySprite, 100, 0)
 scene.cameraFollowSprite(mySprite)
