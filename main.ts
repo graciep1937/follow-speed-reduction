@@ -1,3 +1,7 @@
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    mySprite.vy = 120
+    mySprite.ay = 200
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.isHittingTile(CollisionDirection.Bottom) || (mySprite.isHittingTile(CollisionDirection.Right) || mySprite.isHittingTile(CollisionDirection.Left))) {
         mySprite.vy = -120
@@ -58,6 +62,13 @@ let baddie = sprites.create(img`
     `, SpriteKind.Enemy)
 baddie.setPosition(0, 0)
 let speed = 50
+game.onUpdate(function () {
+    if (mySprite.tileKindAt(TileDirection.Top, sprites.dungeon.darkGroundSouth)) {
+        mySprite.ay = 0
+    } else {
+        mySprite.ay = 200
+    }
+})
 game.onUpdateInterval(100, function () {
     distance = Math.abs(mySprite.x - baddie.x)
     if (distance < 20) {
